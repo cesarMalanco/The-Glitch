@@ -1,0 +1,46 @@
+# === NODE DEPENDENCIES ===
+**/node_modules/
+**/npm-debug.log*
+**/yarn-error.log*
+**/yarn-debug.log*
+**/pnpm-debug.log*
+
+# === FRONTEND (ANGULAR) ===
+/frontend/.angular/cache/
+/frontend/dist/
+/frontend/tmp/
+/frontend/out-tsc/
+/frontend/bazel-out/
+/frontend/coverage/
+/frontend/.sass-cache/
+/frontend/testem.log
+/frontend/typings/
+/frontend/__screenshots__/
+
+# === BACKEND ===
+/backend/dist/
+/backend/out/
+/backend/.env
+/backend/.env.local
+/backend/.env.development.local
+/backend/.env.test.local
+/backend/.env.production.local
+
+# === IDE === 
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/
+.idea/
+.project
+.classpath
+*.sublime-workspace
+*.launch
+.settings/
+
+# === SYSTEM FILES ===
+.DS_Store
+Thumbs.db
+desktop.ini
