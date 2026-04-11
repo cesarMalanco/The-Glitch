@@ -1,0 +1,16 @@
+.navbar-nav .nav-item a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.navbar-nav .nav-item a:hover {
+    color: #ffffff;
+}
+
+.navbar-nav .nav-item i {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.navbar-nav .nav-item i:hover {
+    color: #ffffff;
+}

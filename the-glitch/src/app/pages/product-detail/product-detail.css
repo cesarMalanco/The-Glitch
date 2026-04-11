@@ -1,0 +1,5 @@
+.container .row img.img-fluid {
+    max-height: 400px !important;
+    width: auto !important;
+    object-fit: contain;
+}

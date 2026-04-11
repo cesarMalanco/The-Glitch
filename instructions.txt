@@ -1,0 +1,26 @@
+=== BACKEND ===
+cd backend
+node index.js
+
+=== FRONTEND ===
+cd the-glithc
+ng serve -o
+
+=== STEPS ===
+ng new the-glitch --routing --skip-tests --style=css --standalone --skip-git
+ng g c components/product-template
+
+ng g c pages/cart
+ng g c pages/catalog
+ng g c pages/contact
+ng g c pages/home
+ng g c pages/product-detail
+ng g c pages/product-form
+
+ng g s services/product-service
+ng g s services/cart-service
+ng g s services/alert-service
+
+npm install bootstrap
+npm install bootstrap-icons
+npm install sweetalert2
