@@ -1,0 +1,55 @@
+<div class="form-container">
+  <h2>Agregar Nuevo Producto</h2>
+  <form [formGroup]="productoForm" (ngSubmit)="enviar()">
+    <div class="form-group">
+      <label for="nombre">Nombre del Producto</label>
+      <input id="nombre" formControlName="nombre" placeholder="Ej: Minecraft">
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="categoria">Categoría</label>
+        <input id="categoria" formControlName="categoria" placeholder="Ej: Videojuego">
+      </div>
+      <div class="form-group">
+        <label for="marca">Marca</label>
+        <input id="marca" formControlName="marca" placeholder="Ej: Mojang Studios">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="precio">Precio ($)</label>
+        <input id="precio" type="number" formControlName="precio" placeholder="0.00">
+      </div>
+      <div class="form-group">
+        <label for="stock">Stock</label>
+        <input id="stock" type="number" formControlName="stock" placeholder="0">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="imagen">Imagen del Producto</label>
+      <input id="imagen" type="file" accept="image/*" (change)="onFileSelected($event)" required>
+      <small>Sube una imagen JPG o PNG</small>
+    </div>
+
+    <div class="form-group">
+      <label for="descripcion">Descripción</label>
+      <textarea id="descripcion" formControlName="descripcion" placeholder="Describe los detalles y características del producto"></textarea>
+    </div>
+
+    <div class="form-group checkbox">
+      <label>
+        <input type="checkbox" formControlName="disponible">
+        <span>Producto disponible para venta</span>
+      </label>
+    </div>
+
+    <button type="submit" [disabled]="productoForm.invalid" class="btn-submit">Guardar Producto</button>
+  </form>
+
+  <div *ngIf="mensajeEstado()" class="mensaje" [class.exito]="mensajeEstado().includes('éxito')" [class.error]="mensajeEstado().includes('Error')">
+    {{ mensajeEstado() }}
+  </div>
+</div>

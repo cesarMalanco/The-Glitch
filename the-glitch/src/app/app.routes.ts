@@ -5,6 +5,7 @@ import { Contact } from './pages/contact/contact';
 import { Home } from './pages/home/home';
 import { ProductDetail } from './pages/product-detail/product-detail';
 import { ProductForm } from './pages/product-form/product-form';
+import { AltaProductoComponent } from './components/altas-productos/altas-productos';
 
 export const routes: Routes = [
   {
@@ -30,5 +31,9 @@ export const routes: Routes = [
   {
     path: 'contact',
     component: Contact,
+  },
+  {
+    path: 'products/add', 
+    component: AltaProductoComponent
   },
 ];

@@ -9,7 +9,9 @@ const app = express();
 
 // === CONFIGURATION ===
 app.use(cors());
-app.use(express.json());
+//app.use(express.json()); Se requiere más espacio para guardar las imagenes
+app.use(express.json({ limit: '50mb' }));
+app.use(express.urlencoded({ limit: '50mb', extended: true }));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // === ROUTES ===
@@ -45,25 +47,33 @@ app.get('/api/catalog/:id', (req, res) => {
 });
 
 // Add product
-/*app.post('/api/catalog', (req, res) => {
-    const { name, category, duration, mode, teacher, description } = req.body;
+app.post('/api/products', (req, res) => {
+    // Extraer datos del formulario 
+    const { nombre, categoria, marca, precio, stock, imagen, descripcion, disponible } = req.body;
 
-    db.query(
-        'INSERT INTO courses (name, category, duration, mode, teacher, description) VALUES (?,?,?,?,?,?)'
-        [name, category, duration, mode, teacher, description],
+    // Consulta SQL con las columnas de la tabla de MySQL
+    const sqlQuery = `
+        INSERT INTO products 
+        (name, category, brand, price, stock, image_url, description, available) 
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?)`;
+
+        // Mapeo de ?
+        db.query(
+        sqlQuery, 
+        [nombre, categoria, marca, precio, stock, imagen, descripcion, disponible ? 1 : 0], 
         (err, result) => {
             if (err) {
-                return res.status(500).json({ error: 'Error al crear el curso' })
+                console.error("Detalle del error en consola:", err);
+                return res.status(500).json({ error: 'Error al insertar en la base de datos' });
             }
 
             res.json({
-                message: 'Curso insertado correctamente',
+                message: '¡Producto guardado con éxito!',
                 id: result.insertId
-            })
-
+            });
         }
-    )
-});*/
+    );
+});
 
 // === DB LISTENER ===
 app.listen(3000, () => {
