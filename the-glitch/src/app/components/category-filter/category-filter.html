@@ -1,0 +1,14 @@
+<div class="row mb-4">
+    <div class="col">
+        <div class="btn-group shadow-sm" role="group">
+            <button *ngFor="let cat of categories" (click)="onCategoryChange.emit(cat)" class="btn"
+                [class.btn-primary]="activeCategory === cat" 
+                [class.btn-outline-primary]="activeCategory !== cat">
+                {{cat}}
+            </button>
+        </div>
+        <span class="ms-3 text-muted small">
+            Mostrando: <strong>{{ totalProducts }}</strong> productos
+        </span>
+    </div>
+</div>

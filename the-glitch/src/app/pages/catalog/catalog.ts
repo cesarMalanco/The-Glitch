@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectorRef, signal, computed, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { CategoryFilter } from '../../components/category-filter/category-filter';
+import { ProductCard } from '../../components/product-card/product-card';
 import { ProductService } from '../../services/product-service';
 import { CartService } from '../../services/cart-service';
 import { AlertService } from '../../services/alert-service';
@@ -8,7 +9,7 @@ import { AlertService } from '../../services/alert-service';
 @Component({
   selector: 'app-catalog',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, CategoryFilter, ProductCard],
   templateUrl: './catalog.html',
   styleUrl: './catalog.css',
 })

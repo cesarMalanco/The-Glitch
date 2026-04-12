@@ -1,0 +1,34 @@
+<div class="card border shadow-none sticky-top" style="top: 2rem;">
+    <div class="card-header bg-transparent border-bottom py-3">
+        <h5 class="mb-0">Resumen de Orden</h5>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-borderless mb-0">
+                <tbody>
+                    <tr>
+                        <td>Sub Total:</td>
+                        <td class="text-end">{{ totalValue | currency }}</td>
+                    </tr>
+                    <tr>
+                        <td>Envío:</td>
+                        <td class="text-end text-success">Gratis</td>
+                    </tr>
+                    <tr class="border-top">
+                        <th class="pt-3">Total:</th>
+                        <td class="text-end pt-3">
+                            <span class="fw-bold fs-4 text-dark">
+                                {{ totalValue | currency }}
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="d-grid gap-2 mt-4">
+            <button class="btn btn-success btn-lg shadow-sm" [disabled]="isCartEmpty">
+                Finalizar Compra
+            </button>
+        </div>
+    </div>
+</div>

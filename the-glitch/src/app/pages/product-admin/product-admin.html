@@ -1,0 +1,51 @@
+<div class="container py-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Panel de Administración</h2>
+        <button class="btn btn-success" (click)="prepareAdd()" *ngIf="!showForm">
+            <i class="bi bi-plus-circle me-2"></i>Nuevo Producto
+        </button>
+    </div>
+
+    <div *ngIf="showForm" class="card shadow mb-5">
+        <div class="card-header d-flex justify-content-between">
+            <h5 class="mb-0">{{ editingProduct ? 'Editar' : 'Agregar' }} Producto</h5>
+            <button class="btn-close" (click)="showForm = false"></button>
+        </div>
+        <div class="card-body">
+            <app-product-form-reactive [initialData]="editingProduct" (onSave)="handleSave($event)">
+            </app-product-form-reactive>
+        </div>
+    </div>
+
+    <div class="table-responsive shadow-sm rounded">
+        <table class="table table-hover align-middle bg-white">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Categoría</th>
+                    <th>Precio</th>
+                    <th>Stock</th>
+                    <th class="text-center">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let p of products | async">
+                    <td>{{p.id}}</td>
+                    <td>{{p.name}}</td>
+                    <td>{{p.category}}</td>
+                    <td>{{p.price | currency}}</td>
+                    <td>{{p.stock}}</td>
+                    <td class="text-center">
+                        <button class="btn btn-sm btn-outline-primary me-2" (click)="prepareEdit(p)">
+                            <i class="bi bi-pencil"></i>
+                        </button>
+                        <button class="btn btn-sm btn-outline-danger" (click)="deleteProduct(p.id)">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

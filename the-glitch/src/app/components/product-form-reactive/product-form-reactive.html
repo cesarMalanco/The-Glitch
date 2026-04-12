@@ -1,0 +1,47 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="row g-3">
+    <div class="col-md-6">
+        <label class="form-label">Nombre</label>
+        <input type="text" formControlName="name" class="form-control" placeholder="Ej: Red Redemption">
+    </div>
+
+    <div class="col-md-6">
+        <label class="form-label">Categoría</label>
+        <input type="text" formControlName="category" class="form-control" placeholder="Videojuegos, Consolas...">
+    </div>
+
+    <div class="col-md-6">
+        <label class="form-label">Marca</label>
+        <input type="text" formControlName="brand" class="form-control" placeholder="Nintendo, Sony...">
+    </div>
+
+    <div class="col-md-3">
+        <label class="form-label">Precio</label>
+        <input type="number" formControlName="price" class="form-control">
+    </div>
+
+    <div class="col-md-3">
+        <label class="form-label">Stock</label>
+        <input type="number" formControlName="stock" class="form-control">
+    </div>
+
+    <div class="col-12">
+        <label class="form-label">Descripción</label>
+        <textarea formControlName="description" class="form-control" rows="3"></textarea>
+    </div>
+
+    <div class="col-12">
+        <label class="form-label">Imagen del Producto</label>
+        <input type="file" class="form-control" (change)="onFileSelected($event)" accept="image/*">
+
+        <div *ngIf="imagePreview" class="mt-2">
+            <img [src]="imagePreview" class="img-thumbnail" style="height: 100px;">
+            <p class="small text-muted">Archivo seleccionado: {{ selectedFile?.name }}</p>
+        </div>
+    </div>
+
+    <div class="col-12 mt-4">
+        <button type="submit" class="btn btn-primary w-100" [disabled]="form.invalid">
+            Guardar Producto
+        </button>
+    </div>
+</form>

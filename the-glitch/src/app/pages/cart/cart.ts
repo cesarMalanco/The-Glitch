@@ -1,13 +1,15 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { CartItem } from '../../components/cart-item/cart-item';
+import { OrderSummary } from '../../components/order-summary/order-summary';
 import { CartService } from '../../services/cart-service';
 import { AlertService } from '../../services/alert-service';
 
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, CartItem, OrderSummary],
   templateUrl: './cart.html',
   styleUrl: './cart.css',
 })

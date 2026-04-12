@@ -5,10 +5,8 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-
 export class ProductService {
   private apiUrl = 'http://localhost:3000/api/catalog';
-  private addApiUrl = 'http://localhost:3000/api/products';
 
   constructor(private http: HttpClient) {}
 
@@ -20,8 +18,15 @@ export class ProductService {
     return this.http.get<any>(`${this.apiUrl}/${id}`);
   }
 
-  // Observable to add a product
-  addProduct(producto: any): Observable<any> {
-    return this.http.post(this.addApiUrl, producto);
+  addProduct(formData: FormData): Observable<any> {
+    return this.http.post<any>(this.apiUrl, formData);
+  }
+
+  updateProduct(id: number, formData: FormData): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}/${id}`, formData);
+  }
+
+  deleteProduct(id: number): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/${id}`);
   }
 }
