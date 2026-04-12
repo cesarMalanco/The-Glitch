@@ -24,4 +24,4 @@ ng g s services/alert-service
 npm install bootstrap
 npm install bootstrap-icons
 npm install sweetalert2
-npm install express mysql2 cors
+npm install multer
