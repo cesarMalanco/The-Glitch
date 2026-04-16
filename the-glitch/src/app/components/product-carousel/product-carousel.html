@@ -1,0 +1,25 @@
+<section class="carousel">
+    <h2 class="title">Productos destacados</h2>
+
+    <!-- CAROUSEL -->
+    <div class="track" #track>
+        <div class="card" *ngFor="let p of products()">
+            <img *ngIf="p.image_url"
+                [src]="'http://localhost:3000/uploads/' + p.image_url"
+                [alt]="p.name" />
+
+            <div class="card-body">
+                <h5>{{p.name}}</h5>
+                <p class="category">{{p.category}}</p>
+                <div class="info">
+                    <p class="price">{{p.price | currency}}</p>
+
+                    <a [routerLink]="['/catalog', p.id]"
+                        class="btn btn-primary">
+                        Ver detalles
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

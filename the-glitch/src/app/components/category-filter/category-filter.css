@@ -1,0 +1,111 @@
+/* CONTAINER */
+.filters-wrapper {
+    background: linear-gradient(135deg, rgba(26, 31, 42, 0.8), rgba(20, 25, 34, 0.8));
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 20px 24px;
+    margin-bottom: 40px;
+    border: 1px solid rgba(136, 255, 0, 0.1);
+}
+/* HEADER */
+.filters-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.filters-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.filter-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #88ff00;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: rgba(136, 255, 0, 0.1);
+    padding: 6px 14px;
+    border-radius: 20px;
+}
+
+.products-count {
+    font-size: 14px;
+    color: #a0a8b8;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.products-count i {
+    color: #88ff00;
+}
+
+.category-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+/* BUTTONS */
+.category-btn {
+    background: rgba(26, 31, 42, 0.6);
+    border: 1px solid rgba(136, 255, 0, 0.2);
+    padding: 8px 20px;
+    border-radius: 40px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #cfd5c2;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.category-btn i {
+    font-size: 14px;
+}
+
+.category-btn:hover {
+    border-color: rgba(136, 255, 0, 0.5);
+    color: #88ff00;
+    transform: translateY(-2px);
+}
+
+.category-btn.active {
+    background: linear-gradient(135deg, #88ff00, #6ecc00);
+    border-color: transparent;
+    color: #0a0f14;
+    box-shadow: 0 4px 15px rgba(136, 255, 0, 0.3);
+}
+
+
+/* EXTRA RESPONSIVE */
+@media (max-width: 768px) {
+    .catalog-subtitle {
+        font-size: 28px;
+        padding: 0 20px;
+    }
+    
+    .catalog-container {
+        padding: 0 20px 32px 20px;
+    }
+    
+    .filters-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .filters-info {
+        justify-content: space-between;
+    }
+    
+    .category-filters {
+        justify-content: center;
+    }
+}

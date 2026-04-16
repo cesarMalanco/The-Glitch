@@ -5,6 +5,7 @@ import { Contact } from './pages/contact/contact';
 import { Home } from './pages/home/home';
 import { ProductDetail } from './pages/product-detail/product-detail';
 import { ProductAdmin } from './pages/product-admin/product-admin';
+import { Team } from './pages/team/team';
 
 export const routes: Routes = [
   {
@@ -32,4 +33,7 @@ export const routes: Routes = [
     path: 'contact',
     component: Contact,
   },
+  { path: 'team',
+    component: Team 
+  }
 ];

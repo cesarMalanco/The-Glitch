@@ -1,0 +1,136 @@
+.custom-navbar {
+    background: rgba(10, 15, 20, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(136, 255, 0, 0.15);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #076e1a, #bae342, #1b4d05);
+    -webkit-background-clip: text;
+    color: transparent;
+    cursor: pointer;
+}
+
+.logo:hover{
+    transform: scale(1.03);
+    text-shadow: 0 0 30px rgba(136, 255, 0, 0.9);
+    filter: drop-shadow(0 0 10px rgba(136,255,0,0.6));
+}
+
+.nav-link {
+    transition: all 0.2s ease;
+}
+
+.navbar-nav .nav-item {
+    margin: 0 12px; 
+}
+
+.nav-link:hover {
+    color: #88ff00 !important;
+}
+
+
+.dropdown-menu {
+    background: #1a1f25;
+    border-radius: 8px;
+    border: 1px solid rgba(136, 255, 0, 0.2);
+}
+
+.dropdown-item {
+    color: rgb(207, 213, 194);
+}
+
+.dropdown-item:hover {
+    background: rgba(136, 255, 0, 0.15);
+    color: #88ff00;
+    box-shadow: inset 4px 0 0 #88ff00;
+    
+}
+
+
+.btn {
+    color: rgb(207, 213, 194);
+    background: transparent;
+    border: none !important;
+    padding: 4px 16px;
+    margin-right: 20px;
+    font-size: 16px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+}
+
+.cart-icon {
+    font-size: 20px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+
+.btn:hover {
+    background: linear-gradient(135deg, #88ff00, #6ecc00);
+    color: #0a0f14;
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 10px 25px -5px rgba(136, 255, 0, 0.4);
+}
+
+
+@media (max-width: 991px) {
+
+    .navbar-collapse {
+        background: rgba(10, 15, 20, 0.98);
+        margin-top: 10px;
+        border-radius: 16px;
+        padding: 15px 0;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        border: 1px solid rgba(136, 255, 0, 0.2);
+        backdrop-filter: blur(10px);
+        align-items: center;
+    }
+
+    .navbar-nav {
+        width: 70%;
+        align-items: center; 
+    }
+
+    .btn{
+        width: 30%;
+        margin-left: 35%;
+    }
+
+    .navbar-nav .nav-item {
+        width: 50%;
+    }
+
+    .navbar-nav .nav-link {
+        text-align: center;
+        width: 100%;
+    }
+
+    .nav-link {
+        font-size: 16px;
+    }
+
+    .nav-link:hover {
+        background: rgba(136, 255, 0, 0.15);
+        border-radius: 8px;
+    }
+
+    .dropdown-menu {
+        text-align: center;
+        border: none;
+        box-shadow: none;
+    }
+
+    .dropdown-item {
+        padding: 10px 0;
+    }
+
+    .dropdown-item:hover {
+        background: rgba(136, 255, 0, 0.1);
+    }
+}
+
+

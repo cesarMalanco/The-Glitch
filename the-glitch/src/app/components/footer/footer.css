@@ -1,0 +1,112 @@
+.footer {
+    background: linear-gradient(135deg, #05080c, #0a0e12);
+    border-top: 1px solid rgba(136,255,0,0.1);
+    color: #8892b0;
+}
+
+/* logo */
+.logo-text {
+    font-size: 28px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #ffffff, #88ff00);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+/* DESCRIPTION */
+.footer-description {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* SOCIAL LINKS */
+.social-link {
+    width: 38px;
+    height: 38px;
+    background: rgba(136,255,0,0.1);
+    border: 1px solid rgba(136,255,0,0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #88ff00;
+    transition: 0.3s;
+}
+
+.social-link:hover {
+    background: #88ff00;
+    color: #0a0e12;
+    transform: translateY(-3px);
+}
+
+/* TITLES */
+.footer-title {
+    color: white;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+/* LINKS */
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: #8892b0;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: #88ff00;
+    transform: translateX(5px);
+}
+
+/* NEWSLETTER */
+.newsletter-text {
+    font-size: 14px;
+}
+
+.form-control:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.newsletter-input {
+    background: rgba(26,31,42,0.8);
+    border: 1px solid rgba(136,255,0,0.2);
+    color: white;
+}
+
+.newsletter-btn {
+    background: linear-gradient(135deg, #88ff00, #6ecc00);
+    border: none;
+    color: #0a0e12;
+}
+
+/* PAYMENT METHODS */
+.payment-text {
+    font-size: 12px;
+}
+
+.payment-icon {
+    background: rgba(26,31,42,0.8);
+    border: 1px solid rgba(136,255,0,0.2);
+    padding: 5px 10px;
+    border-radius: 6px;
+    color: #88ff00;
+}
+
+/* BOTTOM */
+.footer-bottom {
+    border-color: rgba(136,255,0,0.1) !important;
+}
+
+.footer-legal a {
+    font-size: 13px;
+    color: #6a7282;
+}
+
+.footer-legal a:hover {
+    color: #88ff00;
+}

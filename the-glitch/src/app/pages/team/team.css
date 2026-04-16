@@ -1,0 +1,149 @@
+
+.team-section {
+    background: linear-gradient(135deg, #0a0e12 0%, #141a22 100%);
+    padding: 60px 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.team-subtitle {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 50px;
+    background: linear-gradient(135deg, #ffffff, #88ff00);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    position: relative;
+    display: inline-block;
+}
+
+.team-subtitle::before {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 24px;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #88ff00, transparent);
+    border-radius: 2px;
+}
+
+.section-header h2 {
+    font-size: 36px;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 12px;
+}
+
+.section-header .highlight {
+    color: #88ff00;
+}
+
+.section-header p {
+    font-size: 16px;
+    color: #a0a8b8;
+    max-width: 550px;
+    margin: 0 auto;
+}
+
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.team-member {
+    background: #151a22;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(136, 255, 0, 0.1);
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border-color: rgba(136, 255, 0, 0.3);
+}
+
+.member-image {
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+}
+
+.member-image img {
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+    transition: transform 0.4s ease;
+}
+
+.team-member:hover .member-image img {
+    transform: scale(1.03);
+}
+
+.member-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.member-info h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+.member-info .role {
+    font-size: 13px;
+    font-weight: 600;
+    color: #88ff00;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+.member-info .bio {
+    font-size: 14px;
+    color: #a0a8b8;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.social {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social a {
+    width: 35px;
+    height: 35px;
+    background: rgba(136, 255, 0, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #88ff00;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.social a:hover {
+    background: #88ff00;
+    color: #0a0e12;
+    transform: translateY(-3px);
+}
+

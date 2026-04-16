@@ -1,0 +1,80 @@
+<div class="pokemon-gift-card">
+    
+    <!-- TITLE -->
+    <div class="gift-header">
+        <i class="bi bi-gift-fill"></i>
+        <h5 class="gift-title">Enviaremos un regalo con tu compra!</h5>
+    </div>
+
+    <!-- FIRST MESSAGE -->
+        <div *ngIf="!isLoading && !isOpening"
+            class="gift-message" 
+            [class.success]="hasGift">
+
+            <p class="mb-0">{{ giftMessage }}</p>
+
+        </div>
+
+    <!-- BUTTON -->
+    <button *ngIf="!hasGift && !isOpening && !isLoading" 
+            class="btn-open-gift" 
+            (click)="openGift()">
+        <i class="bi bi-gift-fill me-2"></i>
+        Abrir regalo
+    </button>
+
+    <!-- OPENING ANIMATION -->
+    <div *ngIf="isOpening" class="gift-opening">
+        <div class="gift-box">
+            <div class="gift-lid"></div>
+            <div class="gift-body">
+                <i class="bi bi-gift-fill"></i>
+            </div>
+        </div>
+        <div class="sparkles">
+            <span>✮⋆˙</span>
+            <span>✦</span>
+            <span>๋✮⋆˙</span>
+            <span>⊹₊⋆</span>
+        </div>
+    </div>
+
+    <!-- THE POKEMON -->
+    <div *ngIf="hasGift && pokemon && !isOpening && !isLoading" class="pokemon-reveal">
+        <div class="pokemon-card">            
+            <img 
+                [src]="getPokemonImage(pokemon)"
+                [alt]="pokemon.name"
+                class="pokemon-img"
+                (error)="onImageError($event)">
+
+            <h4 class="pokemon-name">
+                {{ pokemon.name | titlecase }}
+            </h4>
+
+            <p class="pokemon-id">
+                #{{ getPokemonId(pokemon.id) }}
+            </p>
+
+            <div class="pokemon-types" *ngIf="pokemon.types">
+                <span class="type-badge" *ngFor="let t of pokemon.types">
+                    {{ t.type.name | titlecase }}
+                </span>
+            </div>
+
+            <div class="pokemon-stats">
+                <div class="stat">
+                    <span class="stat-label">Rareza</span>
+                    <span class="stat-value">{{ rarity }}</span>
+                </div>
+
+                <div class="stat">
+                    <span class="stat-label">Habilidades</span>
+                    <span class="stat-value">
+                        {{ pokemon.abilities[0]?.ability.name | titlecase }}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,259 @@
+.admin-container {
+    background: linear-gradient(135deg, #0a0e12 0%, #0f131a 50%, #141a22 100%);
+    min-height: 100vh;
+    position: relative;
+}
+.admin-header {
+    margin-bottom: 30px;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(136, 255, 0, 0.15);
+    position: relative;
+}
+
+.title-icon {
+    width: 55px;
+    height: 55px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(136, 255, 0, 0.15), rgba(136, 255, 0, 0.05));
+    border: 1px solid rgba(136, 255, 0, 0.25);
+    transition: all 0.3s ease;
+}
+
+.title-icon i {
+    color: #88ff00;
+    font-size: 26px;
+}
+
+.admin-title {
+    font-weight: 800;
+    background: linear-gradient(135deg, #ffffff, #88ff00);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: 28px;
+}
+
+.admin-subtitle {
+    color: #8892b0;
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+/* ADD A PRODUCT BUTTON */
+.btnAdd {
+    background: linear-gradient(135deg, #88ff00, #6ecc00);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 14px;
+    font-weight: 700;
+    font-size: 14px;
+    color: #0a0e12;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 2px 8px rgba(136, 255, 0, 0.2);
+}
+
+.btnAdd:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(136, 255, 0, 0.3);
+    gap: 8px;
+}
+
+/* FORM  */
+
+.form-card {
+    background: linear-gradient(135deg, #1a1f2a, #151a22);
+    border-radius: 20px;
+    border: 1px solid rgba(136, 255, 0, 0.12);
+    overflow: hidden;
+    animation: slideDown 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-card-header {
+    padding: 18px 24px;
+    border-bottom: 1px solid rgba(136, 255, 0, 0.1);
+    background: linear-gradient(135deg, rgba(136, 255, 0, 0.05), transparent);
+}
+
+.table-tittle-header {
+    color: #88ff00;
+    font-size: 22px;
+}
+
+.form-card-header h5 {
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 18px;
+}
+
+/* CLOSE FORM BUTTON */
+.btn-danger {
+    border: 1px solid rgba(244, 67, 54, 0.3);
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+}
+
+.btn-danger:hover {
+    color: white;
+    background-color: #53100bb0;
+    transform: scale(1.05);
+    border-color: #f44336;
+}
+
+/* TABLE HEADER */
+.table-container {
+    background: linear-gradient(135deg, #1a1f2a, #151a22);
+    border-radius: 20px;
+    border: 1px solid rgba(136, 255, 0, 0.1);
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.table-header {
+    padding: 18px 24px;
+    border-bottom: 1px solid rgba(136, 255, 0, 0.1);
+    background: linear-gradient(135deg, rgba(136, 255, 0, 0.03), transparent);
+}
+
+.table-title {
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.table-title i {
+    color: #88ff00;
+    font-size: 20px;
+}
+
+/* BADGE QUANTITY OF PRODUCTS */
+.bg-success-subtle {
+    background: rgba(88, 150, 17, 0.12) !important;
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-weight: 800;
+    font-size: 13px;
+}
+
+/* TABLE OF PRODUCTS */
+
+.product-table thead th {
+    background: rgba(10, 14, 18, 0.7);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #8892b0;
+    padding: 16px 20px;
+    transition: all 0.3s ease; 
+}
+
+.product-table tbody td {
+    background: linear-gradient(135deg, #1a1f2a, #151a22);
+    padding: 16px 20px;
+    color: whitesmoke;
+    border-bottom: 1px solid rgba(112, 186, 28, 0.06); 
+}
+
+/* ID Cell */
+.id-cell {
+    font-weight: 700;
+    color: #88ff00;
+    font-family: monospace;
+    font-size: 14px;
+}
+
+/* CATEGORY BADGE */
+.category-badge {
+    background: rgba(136, 255, 0, 0.12);
+    color: #88ff00;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px 14px;
+    border-radius: 30px;
+}
+
+/* PRICE */
+.price-cell {
+    font-weight: 700;
+    font-size: 15px;
+}
+
+/* STOCK BADGE */
+.stock-badge {
+    display: inline-block;
+    gap: 6px;
+    padding: 5px 12px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 800;
+    background: rgba(76, 175, 80, 0.15);
+    color: #4caf50;
+}
+
+.stock-badge.low-stock {
+    background: rgba(255, 152, 0, 0.15);
+    color: #ff9800;
+}
+
+.stock-badge.out-stock {
+    background: rgba(244, 67, 54, 0.15);
+    color: #f44336;
+}
+
+.stock-badge i {
+    font-size: 12px;
+}
+
+/* ACTION BUTTONS */
+.btn-outline-success {
+    border: 1px solid rgba(136, 255, 0, 0.3);
+    color: #88ff00;
+    background: rgba(136, 255, 0, 0.05);
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-success:hover {
+    background: #88ff00;
+    color: #0a0e12;
+    transform: scale(1.08);
+    border-color: #88ff00;
+}
+
+.btn-outline-danger {
+    border: 1px solid rgba(244, 67, 54, 0.3);
+    color: #f44336;
+    background: rgba(244, 67, 54, 0.05);
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-danger:hover {
+    background: #f44336;
+    color: white;
+    transform: scale(1.08);
+    border-color: #f44336;
+}
+

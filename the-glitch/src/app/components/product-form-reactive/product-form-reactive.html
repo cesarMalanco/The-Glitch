@@ -1,4 +1,4 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit()" class="row g-3">
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="row g-3 form-card">
     <div class="col-md-6">
         <label class="form-label">Nombre</label>
         <input type="text" formControlName="name" class="form-control" placeholder="Ej: Red Redemption">
@@ -33,14 +33,14 @@
         <label class="form-label">Imagen del Producto</label>
         <input type="file" class="form-control" (change)="onFileSelected($event)" accept="image/*">
 
-        <div *ngIf="imagePreview" class="mt-2">
+        <div *ngIf="imagePreview" class="mt-2 img-container">
+            <p class="small">Archivo seleccionado: {{ selectedFile?.name }}</p>
             <img [src]="imagePreview" class="img-thumbnail" style="height: 100px;">
-            <p class="small text-muted">Archivo seleccionado: {{ selectedFile?.name }}</p>
         </div>
     </div>
 
     <div class="col-12 mt-4">
-        <button type="submit" class="btn btn-primary w-100" [disabled]="form.invalid">
+        <button type="submit" class="btn primary w-100" [disabled]="form.invalid">
             Guardar Producto
         </button>
     </div>

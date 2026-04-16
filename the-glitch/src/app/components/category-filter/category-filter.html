@@ -1,14 +1,26 @@
-<div class="row mb-4">
-    <div class="col">
-        <div class="btn-group shadow-sm" role="group">
-            <button *ngFor="let cat of categories" (click)="onCategoryChange.emit(cat)" class="btn"
-                [class.btn-primary]="activeCategory === cat" 
-                [class.btn-outline-primary]="activeCategory !== cat">
-                {{cat}}
-            </button>
+<div class="filters-wrapper">
+    <div class="filters-header">
+        <div class="filters-info">
+            <span class="filter-label">Categorías</span>
+            <span class="products-count">
+                <i class="bi bi-grid-3x3-gap-fill"></i>
+                {{ totalProducts }} productos
+            </span>
         </div>
-        <span class="ms-3 text-muted small">
-            Mostrando: <strong>{{ totalProducts }}</strong> productos
-        </span>
+
+        <div class="category-filters">
+            <button *ngFor="let cat of categories"
+                    (click)="onCategoryChange.emit(cat)"
+                    class="category-btn"
+                    [class.active]="activeCategory === cat">
+                    
+                <span class="category-icon">
+                    <i class="bi" [class.bi-tag]="cat !== 'Todos'" [class.bi-star-fill]="cat === 'Todos'">
+                    </i>
+                </span>
+                {{ cat }}
+            </button>
+
+        </div>
     </div>
 </div>

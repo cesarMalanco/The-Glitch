@@ -1,1 +1,80 @@
 @import 'sweetalert2/dist/sweetalert2.min.css';
+
+:root {
+    /* GREENS */
+    --primary-color: #88ff00;
+    --primary-dark: #6ecc00;
+    --primary-light: #aaff33;
+    
+    /* CBACKGROUND COLORS */
+    --bg-dark: #0a0e12;
+    --bg-darker: #05080c;
+    --bg-card: #1a1f2a;
+    --bg-card-hover: #222833;
+    
+    /* TEXT COLORS */
+    --text-primary: #ffffff;
+    --text-secondary: #a0a8b8;
+    --text-muted: #6a7282;
+}
+
+body {
+    background: var(--bg-dark);
+    color: var(--text-primary);
+    margin: 0;
+    padding: 0;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-darker);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-dark);
+}
+
+/* SweetAlert */
+.custom-swal-popup {
+    border-radius: 16px;
+    border: 1px solid rgba(136, 255, 0, 0.15);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+}
+
+.custom-swal-title {
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.custom-swal-text {
+    font-size: 14px;
+    color: #a0aec0;
+}
+
+.custom-swal-confirm {
+    border-radius: 10px !important;
+    font-weight: 500;
+    padding: 8px 18px;
+}
+
+.custom-swal-cancel {
+    border-radius: 10px !important;
+    background: #2a2f3a !important;
+    color: #fff !important;
+}
+
+/* Toast */
+.custom-swal-toast {
+    border-radius: 12px;
+    border: 1px solid rgba(136, 255, 0, 0.1);
+}

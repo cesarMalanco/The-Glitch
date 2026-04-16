@@ -1,0 +1,265 @@
+.carousel {
+    padding: 60px 80px;
+    background: linear-gradient(135deg, #0b0f14 0%, #1a1f2a 100%);
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #88ff00, transparent);
+}
+
+.title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(135deg, #ffffff, #88ff00);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: -0.5px;
+}
+
+.title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 50%;
+    height: 3px;
+    background: linear-gradient(90deg, #88ff00, transparent);
+    border-radius: 2px;
+}
+
+
+.track {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 16px 4px 20px 4px;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE y Edge */
+}
+
+/* Hide the scrollbar in opera and chrome and otherd */
+.track::-webkit-scrollbar {
+    display: none;
+}
+
+/* CARDS */
+.card {
+    width: 300px;
+    min-height: 400px;
+    background: linear-gradient(135deg, #1a1f2a 0%, #151a22 100%);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    position: relative;
+    border: 1px solid rgba(136, 255, 0, 0.1);
+    flex-shrink: 0;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #88ff00, #6ecc00);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.card:hover::before {
+    transform: scaleX(1);
+}
+
+.card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(136, 255, 0, 0.2);
+    border-color: rgba(136, 255, 0, 0.3);
+}
+
+/* IMAGE */
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    transition: transform 0.5s ease;
+}
+
+.card:hover img {
+    transform: scale(1.05);
+}
+
+.card-body {
+    padding: 20px;
+    margin-top: 20px;
+    position: relative;
+    background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.3));
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.card-body h5 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #ffffff;
+    transition: color 0.3s ease;
+}
+
+.card:hover .card-body h5 {
+    color: #88ff00;
+}
+
+.category {
+    font-size: 13px;
+    color: #8892b0;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.info{
+    display: flex;
+    align-items: center;        
+    justify-content: space-between; 
+    margin-top: auto;
+}
+
+.price {
+    font-size: 24px;
+    font-weight: 800;
+    color: #88ff00;
+    margin: 0;
+    display: inline-block;
+}
+
+/* BUTTONS */
+.btn-primary {
+    background: transparent;
+    border: 2px solid #88ff00;
+    color: #88ff00;
+    padding: 8px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(136, 255, 0, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn-primary:hover::before {
+    left: 100%;
+}
+
+.btn-primary:hover {
+    background: rgba(136, 255, 0, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(136, 255, 0, 0.2);
+}
+
+/* BADGE */
+.card::after {
+    content: '★';
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(136, 255, 0, 0.9);
+    color: #0b0f14;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.3s ease;
+}
+
+.card:hover::after {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.track {
+    mask-image: linear-gradient(to right, 
+        transparent, 
+        black 5%, 
+        black 95%, 
+        transparent
+    );
+    -webkit-mask-image: linear-gradient(to right, 
+        transparent, 
+        black 5%, 
+        black 95%, 
+        transparent
+    );
+}
+
+/* EXTRA RESPONSIVE */
+@media (max-width: 768px) {
+    .carousel {
+        padding: 40px 20px;
+    }
+    
+    .title {
+        font-size: 24px;
+    }
+    
+    .card {
+        min-width: 240px;
+    }
+    
+    .card img {
+        height: 160px;
+    }
+    
+    .price {
+        font-size: 20px;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    animation: fadeInUp 0.6s ease-out backwards;
+}

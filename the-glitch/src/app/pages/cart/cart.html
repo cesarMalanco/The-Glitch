@@ -1,27 +1,137 @@
-<div class="container py-5">
-    <div class="row g-4">
+<div class="cart-section py-5">
+    <div class="container">
+        <div class="row g-4">
+
+        <!-- PRODUCTS -->
         <div class="col-lg-8">
-            <h4 class="mb-4">Tu Carrito ({{ items().length }})</h4>
 
-            <app-cart-item *ngFor="let producto of items()" [p]="producto" (onRemove)="remove($event)"
-                (onAdd)="addOne($event)" (onDeleteAll)="removeAll($event)">
-            </app-cart-item>
+            <h4 class="cart-title mb-4">
+            Tu Carrito 
+            <span>({{ items().length }} {{ items().length === 1 ? 'producto' : 'productos' }})</span>
+            </h4>
 
-            <div *ngIf="items().length === 0" class="alert alert-info">
-                ¡Tu carrito de está vacío, agrega unos cuantos productos!
+            <ng-container *ngIf="items().length > 0; else emptyCart">
+
+            <div class="card cart-item-card mb-3" *ngFor="let p of items()">
+                <div class="card-body">
+
+                <!-- Header -->
+                <div class="d-flex gap-3 align-items-start border-bottom pb-3 mb-3">
+                    <img [src]="'http://localhost:3000/uploads/' + p.image_url"
+                        class="cart-item-image">
+
+                    <div class="flex-grow-1">
+                    <a [routerLink]="['/catalog', p.id]" class="cart-item-name">
+                        {{p.name}}
+                    </a>
+                    <p class="cart-item-category mb-0">{{p.category}}</p>
+                    </div>
+
+                    <button (click)="removeAll(p.id)" class="btn-remove-all">
+                    <i class="bi bi-trash"></i>
+                    </button>
+                </div>
+
+                <!-- Info row -->
+                <div class="row text-center align-items-center">
+
+                    <!-- PRICE -->
+                    <div class="col-md-4 text-md-start">
+                    <small class="label">Precio</small>
+                    <h6 class="value">{{p.price | currency}}</h6>
+                    </div>
+
+                    <!-- QUANTITY -->
+                    <div class="col-md-4">
+                    <small class="label">Cantidad</small>
+
+                    <div class="d-flex justify-content-center align-items-center gap-2 mt-1">
+                        <button (click)="remove(p.id)" class="btn-quantity">
+                        <i class="bi bi-dash"></i>
+                        </button>
+
+                        <span class="quantity-number">
+                        {{p.quantity || 1}}
+                        </span>
+
+                        <button (click)="addOne(p)"
+                                class="btn-quantity"
+                                [disabled]="p.quantity >= p.stock">
+                        <i class="bi bi-plus"></i>
+                        </button>
+                    </div>
+
+                    <small *ngIf="p.quantity >= p.stock" class="text-warning d-block mt-1">
+                        Límite de stock
+                    </small>
+                    </div>
+
+                    <!-- TOTAL -->
+                    <div class="col-md-4 text-md-end">
+                    <small class="label">Total</small>
+                    <h6 class="value">
+                        {{ (p.price * (p.quantity || 1)) | currency }}
+                    </h6>
+                    </div>
+
+                </div>
+
+                </div>
             </div>
 
-            <div class="mt-4">
-                <a routerLink="/catalog" class="btn btn-link text-muted p-0">
-                    <i class="bi bi-arrow-left me-1"></i> Continuar comprando
-                </a>
+            </ng-container>
+
+            <!-- CONTINUE -->
+            <a routerLink="/catalog" class="continue-shopping mt-3 d-inline-block">
+            <i class="bi bi-arrow-left"></i> Continuar comprando
+            </a>
+
+        </div>
+
+        <!-- ORDER SUMMARY -->
+        <div class="col-lg-4 summary-column">
+            <div class="card order-summary p-3" style="top: 2rem;">
+
+            <h5 class="mb-3">Resumen</h5>
+
+            <div class="d-flex justify-content-between mb-2">
+                <span>Subtotal</span>
+                <span>{{ total() | currency }}</span>
+            </div>
+
+            <div class="d-flex justify-content-between mb-2 text-success">
+                <span>Envío</span>
+                <span>Gratis</span>
+            </div>
+
+            <app-pokemon-gift *ngIf="items().length > 0" class="mt-3"></app-pokemon-gift>
+
+            <hr>
+
+            <div class="d-flex justify-content-between fw-bold mb-3">
+                <span>Total</span>
+                <span class="text-success">{{ total() | currency }}</span>
+            </div>
+
+            <button class="btn-checkout w-100" disabled>
+                Finalizar Compra
+            </button>
+
             </div>
         </div>
 
-        <div class="col-lg-4">
-            <app-order-summary 
-                [totalValue]="total()" [isCartEmpty]="items().length === 0">
-            </app-order-summary>
         </div>
     </div>
-</div>
+    </div>
+
+    <!-- EMPTY CART -->
+    <ng-template #emptyCart>
+        <div class="empty-cart text-center">
+            <i class="bi bi-cart-x fs-1 mb-3"></i>
+            <h3>Tu carrito está vacío</h3>
+            <p>Agrega productos para comenzar</p>
+            <a routerLink="/catalog" class="btn-shop-now">
+            Explorar productos
+            </a>
+        </div>
+    </ng-template>

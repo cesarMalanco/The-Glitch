@@ -1,0 +1,102 @@
+<section class="coming-soon-section container-fluid py-5">
+    <div class="container">
+        <div class="row align-items-center g-5">
+
+            <!-- LEFT SIDE -->
+            <div class="col-lg-6 text-center text-lg-start">
+                <!-- TITLE -->
+                <div class="d-inline-flex align-items-center mb-4">
+                    <h2 class="title">Proximamente</h2>
+                </div>
+
+                <h2 class="product-title">
+                    Lo nuevo de 
+                    <span class="title-highlight d-block">StyleHub</span>
+                </h2>
+                <h3 class="product-name">Ultra Edition 2026</h3>
+                <p class="product-description">Descubre la innovación en su máxima expresión...</p>
+
+                <!-- FEATURES -->
+                <div class="row g-3 mb-4 align-items-center">
+                    <div class="col-6">
+                        <div class="feature-item d-flex align-items-center gap-2">
+                            <div class="feature-check"><i class="bi bi-cpu"></i></div>
+                        <span>Tecnología de última generación</span>
+                        </div>
+                    </div>
+
+                <div class="col-6">
+                    <div class="feature-item d-flex align-items-center gap-2">
+                        <div class="feature-check"><i class="bi bi-brush"></i></div>
+                        <span>Diseño premium</span>
+                    </div>
+                </div>
+
+                <div class="col-6">
+                    <div class="feature-item d-flex align-items-center gap-2">
+                        <div class="feature-check"><i class="bi bi-leaf"></i></div>
+                        <span>Materiales ecológicos</span>
+                    </div>
+                </div>
+
+                <div class="col-6">
+                    <div class="feature-item d-flex align-items-center gap-2">
+                        <div class="feature-check"><i class="bi bi-patch-check"></i></div>
+                        <span>Garantía 2 años</span>
+                    </div>
+                </div>
+            </div>
+
+                <!-- COUNTDOWN -->
+                <h4>Disponible en:</h4>
+                <div class="countdown-wrapper mb-4">
+
+                    <div class="d-flex justify-content-center gap-3 flex-wrap" *ngIf="!isAvailable; else availableTemplate">
+
+                        <div class="time-block">
+                        <div class="time-number">{{ days }} :</div>
+                        <div class="time-label">Días</div>
+                        </div>
+
+                        <div class="time-block">
+                        <div class="time-number">{{ hours }} :</div>
+                        <div class="time-label">Horas</div>
+                        </div>
+
+                        <div class="time-block">
+                        <div class="time-number">{{ minutes }} :</div>
+                        <div class="time-label">Minutos</div>
+                        </div>
+
+                        <div class="time-block">
+                        <div class="time-number">{{ seconds }}</div>
+                        <div class="time-label">Segundos</div>
+                        </div>
+
+                    </div>
+
+                <ng-template #availableTemplate>
+                    <div class="available-now">¡Ya disponible!</div>
+                </ng-template>
+                </div>
+            </div>
+
+            <!-- RIGHT SIDE -->
+            <div class="col-lg-6 text-center position-relative">
+                <div class="product-visual d-flex justify-content-center align-items-center">
+                    <div class="visual-background"></div>
+                    <div class="product-image-container">
+                        <img src="./coming-soon.png" class="img-fluid product-image">
+                        <div class="image-glow"></div>
+                    </div>
+
+                    <!-- STICKERS -->
+                    <div class="floatings tag-1"><img src="./badge-1.png"></div>
+                    <div class="floatings tag-2"><img src="./badge-2.png"></div>
+                    <div class="floatings tag-3"><img src="./badge-3.png"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

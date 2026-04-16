@@ -1,0 +1,67 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top custom-navbar">
+
+    <div class="container-fluid">
+
+        <!-- LOGO -->
+        <a class="navbar-brand d-flex align-items-center logo" routerLink="/">
+        <img src="./the-glitch-logo.png" alt="logo" width="60" class="me-2">
+        The Glitch
+        </a>
+
+        <!-- BUTTON RESPONSIVE-->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span> 
+        </button>
+
+        <!-- MENU -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+
+                <li class="nav-item">
+                <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                    Inicio
+                </a>
+                </li>
+
+                <!-- DROPDOWN -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Nuestros Productos</a>
+
+                    <ul class="dropdown-menu">
+                        <li *ngFor="let cat of categories">
+                            <a 
+                            class="dropdown-item"
+                            [routerLink]="['/catalog']"
+                            [queryParams]="{ category: cat === 'Todos' ? null : cat }">
+
+                            {{ cat }}
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" routerLink="/admin">Agregar Producto</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" routerLink="/team">Equipo de Trabajo</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" routerLink="/contact">Contáctanos</a>
+                </li>
+
+            </ul>
+
+            <!-- CART -->
+            <a routerLink="/cart" class="btn btn-outline-light position-relative">
+                <i class="bi bi-cart4 cart-icon"></i>
+                <span *ngIf="cartService.countItems() > 0" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    {{ cartService.countItems() }}
+                </span>
+            </a>
+
+        </div>
+    </div>
+</nav>
