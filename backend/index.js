@@ -9,6 +9,7 @@ const { validateProduct, validateContact } = require('./middleware');
 
 // === CONSTANTS ===
 const app = express();
+const PORT = process.env.PORT || 3000;
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -153,6 +154,6 @@ app.post('/api/contact', validateContact, (req, res) => {
 });
 
 // === DB LISTENER ===
-app.listen(3000, () => {
-    console.log('Backend server on http://localhost:3000')
+app.listen(PORT, () => {
+    console.log(`Servidor en puerto ${PORT}`);
 }); 
