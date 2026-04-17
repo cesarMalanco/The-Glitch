@@ -1,4 +1,5 @@
 import { Component, OnInit, ChangeDetectorRef, signal, computed, inject } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { CategoryFilter } from '../../components/category-filter/category-filter';
 import { ProductCard } from '../../components/product-card/product-card';
@@ -13,10 +14,10 @@ import { AlertService } from '../../services/alert-service';
   templateUrl: './catalog.html',
   styleUrl: './catalog.css',
 })
-
 export class Catalog implements OnInit {
   private cartService = inject(CartService);
   private alertService = inject(AlertService);
+  private route = inject(ActivatedRoute);
 
   products = signal<any[]>([]);
   activeCategory = signal<string>('All');
@@ -41,6 +42,16 @@ export class Catalog implements OnInit {
 
   ngOnInit(): void {
     this.loadProducts();
+
+    this.route.queryParams.subscribe((params) => {
+      const categoryFromUrl = params['category'];
+
+      if (categoryFromUrl) {
+        this.activeCategory.set(categoryFromUrl);
+      } else {
+        this.activeCategory.set('All');
+      }
+    });
   }
 
   loadProducts(): void {

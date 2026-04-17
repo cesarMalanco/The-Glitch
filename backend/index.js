@@ -29,7 +29,7 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 // === ROUTES ===
 // Test route
 app.get('/', (req, res) => {
-    res.send('API working correctly')
+    res.send('API funcionando correctamente')
 });
 
 // Get products
@@ -76,17 +76,34 @@ app.put('/api/catalog/:id', upload.single('image'), validateProduct, (req, res) 
     const id = req.params.id;
     const { name, category, brand, price, stock, description } = req.body;
 
-    let query = 'UPDATE products SET name=?, category=?, brand=?, price=?, stock=?, description=? WHERE id=?';
-    let params = [name, category, brand, price, stock, description, id];
+    db.query('SELECT image_url FROM products WHERE id = ?', [id], (err, result) => {
+        if (err) return res.status(500).json({ error: 'Error al buscar producto' });
+        if (result.length === 0) return res.status(404).json({ error: 'Producto no encontrado' });
 
-    if (req.file) {
-        query = 'UPDATE products SET name=?, category=?, brand=?, price=?, stock=?, description=?, image_url=? WHERE id=?';
-        params = [name, category, brand, price, stock, description, req.file.filename, id];
-    }
+        const oldImageName = result[0].image_url;
+        let query = 'UPDATE products SET name=?, category=?, brand=?, price=?, stock=?, description=? WHERE id=?';
+        let params = [name, category, brand, price, stock, description, id];
 
-    db.query(query, params, (err, result) => {
-        if (err) return res.status(500).json({ error: err.message });
-        res.json({ message: 'Producto actualizado' });
+        if (req.file) {
+            query = 'UPDATE products SET name=?, category=?, brand=?, price=?, stock=?, description=?, image_url=? WHERE id=?';
+            params = [name, category, brand, price, stock, description, req.file.filename, id];
+        }
+
+        db.query(query, params, (err, updateResult) => {
+            if (err) return res.status(500).json({ error: err.message });
+
+            if (req.file && oldImageName) {
+                const oldPath = path.join(__dirname, 'uploads', oldImageName);
+
+                if (fs.existsSync(oldPath)) {
+                    fs.unlink(oldPath, (err) => {
+                        if (err) console.error(err);
+                    });
+                }
+            }
+
+            res.json({ message: 'Producto actualizado correctamente' });
+        });
     });
 });
 
