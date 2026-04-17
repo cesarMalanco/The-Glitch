@@ -16,7 +16,7 @@ export class ProductFormReactive {
     if (value) {
       this.form.patchValue(value);
       this.imagePreview = value.image_url
-        ? `http://localhost:3000/uploads/${value.image_url}`
+        ? `https://the-glitch.onrender.com/uploads/${value.image_url}`
         : null;
     } else {
       this.form.reset({ price: 0, stock: 0 });

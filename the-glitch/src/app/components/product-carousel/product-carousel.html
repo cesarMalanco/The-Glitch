@@ -5,7 +5,7 @@
     <div class="track" #track>
         <div class="card" *ngFor="let p of products()">
             <img *ngIf="p.image_url"
-                [src]="'http://localhost:3000/uploads/' + p.image_url"
+                [src]="'https://the-glitch.onrender.com/uploads/' + p.image_url"
                 [alt]="p.name" />
 
             <div class="card-body">

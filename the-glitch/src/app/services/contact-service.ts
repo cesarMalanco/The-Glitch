@@ -7,7 +7,7 @@ import { Injectable, inject } from '@angular/core';
 export class ContactService {
   private http = inject(HttpClient);
   
-  private apiUrl = 'http://localhost:3000/api/contact';
+  private apiUrl = 'https://the-glitch.onrender.com/api/contact';
 
 
   sendMessage(messageData: any) {
